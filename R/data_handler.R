@@ -29,12 +29,12 @@
 #' @export
 #' @import tidyverse
 fetch_data_from_state <- function(state_code,
-                                       ey_start,
-                                       ey_end,
-                                       ew_start = 1,
-                                       ew_end = 52,
-                                       disease = "dengue",
-                                       normalize = FALSE) {
+                                  ey_start,
+                                  ey_end,
+                                  ew_start = 1,
+                                  ew_end = 52,
+                                  disease = "dengue",
+                                  normalize = FALSE) {
   if(missing(ey_end)) {
     warning("Since `ey_end` was not provided, using the same as `ey_start`.\n")
     ey_end <- ey_start
