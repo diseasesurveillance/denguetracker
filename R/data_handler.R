@@ -57,7 +57,8 @@ fetch_data_from_state <- function(state_code,
       paste0(url, "geocode=", geocode, "&disease=", disease, "&format=",
              format, "&ew_start=", ew_start, "&ew_end=", ew_end, "&ey_start=",
              ey_start, "&ey_end=", ey_end)
-    data_ <- read_csv(cons1, show_col_types = FALSE) |> arrange(data_iniSE)
+    data_ <- readr::read_csv(cons1, show_col_types = FALSE) |>
+      arrange(data_iniSE)
     
     cat("\rProgress (cities downloaded): ", j, "/", length(cities$municipio))
     if (is.null(dados)) dados <- data_
