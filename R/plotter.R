@@ -33,19 +33,19 @@
 plot_time_series <- function(time_series_list, labels, theme = theme_bw()) {
 
   if (length(time_series_list) != length(labels)) {
-    stop("Number of rows in time_series_list and length of labels must be the same.")
+    stop("Length of `time_series_list` and `labels` must be the same.")
   }
 
   # Combine time series and labels into a single tibble
   names(time_series_list) <- labels
-  data_ <- bind_rows(time_series_list, .id = "label")
+  binded_df <- bind_rows(time_series_list, .id = "label")
 
   # Check wether the combined dataframe has the `x` and `y` columns or not
-  if (!all(c("x", "y") %in% colnames(if_df))) {
+  if (!all(c("x", "y") %in% colnames(binded_df))) {
     stop("All datasets must have `x` and `y` columns.")
   }
   # Plot using ggplot2
-  return(ggplot(data_, aes(x = x, y = y, color = label)) +
+  return(ggplot(binded_df, aes(x = x, y = y, color = label)) +
     geom_line() +
     labs(x = "Time", y = "Value") +
     theme +
