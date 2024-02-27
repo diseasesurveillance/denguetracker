@@ -1,7 +1,7 @@
 library(denguetracker)
 library(lubridate)
 
-setwd("/Users/guipsoares/kaust_research/denguetracker")
+#setwd(yourwd)
 
 brazil_ufs <- c(
   "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", 
