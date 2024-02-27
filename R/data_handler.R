@@ -59,8 +59,11 @@ fetch_data_from_state <- function(state_code,
         ey_start, "&ey_end=", ey_end
       )
     data_ <- readr::read_csv(cons1, show_col_types = FALSE) |>
-      dplyr::arrange(data_iniSE)
-
+      dplyr::arrange(data_iniSE) |>
+      dplyr::select(data_iniSE, casos)
+    data_$data_iniSE <- as.Date(data_$data_iniSE, format = "%Y-%m-%d")
+    data_$casos <- as.double(data_$casos)
+    
     cat("\rProgress (cities downloaded): ", j, "/", length(cities$municipio))
     if (is.null(dados)) {
       dados <- data_
