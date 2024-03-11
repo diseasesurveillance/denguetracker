@@ -47,6 +47,6 @@ get data related to `dengue`, `zika` and `chikungunya`.
 }
 \examples{
 \dontrun{
-  df <- fetch_data_from_all_cities("SP", 2019, 2023)
+df <- fetch_data_from_state("SP", 2019, 2023)
 }
 }
