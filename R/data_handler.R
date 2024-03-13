@@ -62,6 +62,7 @@ fetch_data_from_state <- function(state_code,
       dplyr::arrange(data_iniSE) |>
       dplyr::select(data_iniSE, SE, casos, casos_est, casos_est_min, casos_est_max)
     data_$data_iniSE <- as.Date(data_$data_iniSE, format = "%Y-%m-%d")
+    data_$SE <- as.double(data_$SE)
     data_$casos <- as.double(data_$casos)
     data_$casos_est <- as.double(data_$casos_est)
     data_$casos_est_max <- as.double(data_$casos_est_max)
